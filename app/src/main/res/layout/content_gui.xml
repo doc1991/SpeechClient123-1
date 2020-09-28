@@ -12,9 +12,9 @@
     <include
         android:id="@+id/mesage_view"
         layout="@layout/message_list"
-        android:layout_width="415dp"
-        android:layout_height="619dp"
-        tools:layout_editor_absoluteX="-4dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="502dp"
+        tools:layout_editor_absoluteX="-3dp" />
 
 
     <pl.bclogic.pulsator4droid.library.PulsatorLayout
@@ -25,23 +25,42 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-277dp">
 
+
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lav_toggle"
-            android:layout_width="119dp"
-            android:layout_height="90dp"
+            android:id="@+id/listening"
+            android:layout_width="wrap_content"
+            android:layout_height="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="238dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="130dp"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="wave.json"
+            app:lottie_loop="true"
+            app:lottie_speed="1" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/play_pause_btn"
+            android:layout_width="146dp"
+            android:layout_height="102dp"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
 
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="140dp"
+            android:layout_marginStart="131dp"
             android:layout_marginTop="238dp"
-            android:layout_marginEnd="152dp"
+            android:layout_marginEnd="134dp"
             android:layout_marginBottom="11dp"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="play_button.json"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="pay_pause.json"
             app:lottie_loop="false"
-            app:lottie_speed="0.75" />
+            app:lottie_speed="3" />
 
 
     </pl.bclogic.pulsator4droid.library.PulsatorLayout>

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpeechClient123.iml" filepath="$PROJECT_DIR$/.idea/modules/SpeechClient123.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SpeechClient123.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SpeechClient123.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StudioProjects-SpeechClient123.iml" filepath="$PROJECT_DIR$/.idea/modules/StudioProjects-SpeechClient123.iml" group="SpeechClient123" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SpeechClient123/app" />
     </modules>
   </component>
 </project>
