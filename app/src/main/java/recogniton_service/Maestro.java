@@ -93,6 +93,7 @@ public class Maestro extends Service {
                  app.Stage = Constants.CP_STAGE;
                 Log.d(TAG, "no speech "+RETRY_FLAG);
                  EventBus.getDefault().postSticky(new Events.StopButton (true));
+                 EventBus.getDefault().postSticky(new Events.ActivatedRecognition(false));
           /* if (RETRY_FLAG < RETRY_LIMIT){
                 app.Stage= Constants.IN_STAGE;
                 speak("Παρακαλώ επαναλάβετε");
@@ -215,9 +216,11 @@ public class Maestro extends Service {
                 }
                 else if(resp.getText().contains("όχι") ) {
                      app.Stage = Constants.CP_STAGE;
-                    EventBus.getDefault().postSticky(new Events.ActivatedRecognition(false));
+
                     speak("όπως επιθυμείτε");
+
                 }
+                EventBus.getDefault().postSticky(new Events.ActivatedRecognition(false));
                 Log.i(TAG,"entered in after vr stage= ");
             }
 
@@ -225,7 +228,7 @@ public class Maestro extends Service {
             if (app.Stage.equals(Constants.RUN_STAGE)){
                 app.runIntent(getApplicationContext());
                 app.Stage = Constants.CP_STAGE;
-                //EventBus.getDefault().postSticky(new Events.ActivatedRecognition(true));
+                EventBus.getDefault().postSticky(new Events.ActivatedRecognition(false));
                 Log.i(TAG,"entered in run stage");
             }
 
@@ -235,6 +238,7 @@ public class Maestro extends Service {
                 Constants.app.Init();
                 Log.i(TAG,"entered in not found stage");
                 app.Stage = Constants.CP_STAGE;
+
 
 
             }
