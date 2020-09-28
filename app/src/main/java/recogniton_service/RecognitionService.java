@@ -152,6 +152,7 @@ public abstract class RecognitionService extends Service implements TtsProgressL
         if (recognition != null)
             recognition.CancelSpeechRecognizer();
 
+        EventBus.getDefault().postSticky(new Events.StopButton (true));
 
     }
 
@@ -173,7 +174,11 @@ public abstract class RecognitionService extends Service implements TtsProgressL
 
         startHandler.post(() -> StartRecognition());
     }
-
+    public void onlySpeak(String message) {
+        ToastMessage(message);
+        TalkEngine.speak(message);
+        EventBus.getDefault().postSticky(new Events.SpeechMessageShow (message));
+    }
 
     public void speak(String message) {
 

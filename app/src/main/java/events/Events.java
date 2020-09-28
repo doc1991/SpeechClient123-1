@@ -44,7 +44,19 @@ public class Events {
             return activated;
         }
     }
+    public static class StopButton {
 
+        private final boolean stopbtn;
+
+        public StopButton(boolean stopbtn) {
+            this.stopbtn = stopbtn;
+        }
+
+
+        public boolean isStopbtn() {
+            return stopbtn;
+        }
+    }
     public static class ComputingRecognition {
 
         private final boolean isComputing;

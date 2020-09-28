@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -63,9 +64,9 @@ public class MainActivity extends PermissionActivity implements NavigationView.O
     private ForeGroundRecognition foreGroundRecognition;
     private Intent SpeechIntent;
     private boolean exit;
-    LottieAnimationView toggle;
+    LottieAnimationView toggle,waveAnim;
     boolean flag = false;
-    private boolean isClicked;
+
     private MessageAdapter messageAdapter;
     private ListView messagesView;
 
@@ -116,22 +117,33 @@ public class MainActivity extends PermissionActivity implements NavigationView.O
     @Subscribe(sticky = true,threadMode = ThreadMode.MAIN)
     public void isActivated(Events.ActivatedRecognition event )
     {
-        if(event.isActivated()) {
-
-
-            toggle.setAnimation("pause.json");
-            toggle.setRepeatCount(LottieDrawable.INFINITE);
-            toggle.playAnimation();
+       if(event.isActivated()) {
+           waveAnim.setRepeatCount(Animation.INFINITE);
+           waveAnim.setVisibility(View.VISIBLE);
+           waveAnim.playAnimation();
 
         }
         else
         {
-            toggle.cancelAnimation();
-            toggle.setAnimation("play_button.json");
-            toggle.clearAnimation();
+           // waveAnim.setRepeatCount(Animation.ABSOLUTE);
+            waveAnim.cancelAnimation();
+            waveAnim.setVisibility(View.GONE);
 
+        } /**/
+    }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Subscribe(sticky = true,threadMode = ThreadMode.MAIN)
+    public void isActivated(Events.StopButton event )
+    {
+        if(event.isStopbtn()) {
+
+            flag = false;
+            toggle.setProgress(0);
+            waveAnim.cancelAnimation();
+            waveAnim.setVisibility(View.GONE);
         }
+
     }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -147,9 +159,9 @@ public class MainActivity extends PermissionActivity implements NavigationView.O
         messageAdapter = new MessageAdapter(this);
         messagesView = (ListView) findViewById(R.id.messages_view);
         messagesView.setAdapter(messageAdapter);
-        isClicked = true;
-        toggle = findViewById(R.id.lav_toggle);
-
+        toggle = findViewById(R.id.play_pause_btn);
+        waveAnim = findViewById(R.id.listening);
+        waveAnim.setVisibility(View.GONE);
         toggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,16 +169,17 @@ public class MainActivity extends PermissionActivity implements NavigationView.O
 
                 if (flag == false) {
                     flag = true;
+
+                    toggle.playAnimation();
+
                     startRecord(flag);
 
                     //---- Your code here------
                 } else {
-                    toggle.cancelAnimation();
-                    toggle.clearAnimation();
-                    toggle.setAnimation("play_button.json");
 
                     flag = false;
                     startRecord(flag);
+                    toggle.setProgress(0);
 
                     //---- Your code here------
                 }

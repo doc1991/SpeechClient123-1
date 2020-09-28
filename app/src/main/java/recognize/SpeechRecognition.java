@@ -36,7 +36,7 @@ public class SpeechRecognition implements RecognitionListener {
         speechIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
        // speechIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
         speechIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        //speechIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,5000);
+        speechIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,1000);
 
 
     }
@@ -73,6 +73,8 @@ public class SpeechRecognition implements RecognitionListener {
 
         Constants.app.Init();
         EventBus.getDefault().postSticky(new Events.ActivatedRecognition (false));
+        EventBus.getDefault().postSticky(new Events.StopButton (true));
+
     }
 
     @Override
