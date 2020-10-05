@@ -15,9 +15,20 @@
             android:icon="@android:drawable/ic_menu_manage"
             android:title="Ρυθμίσεις" />
         <item
+            android:id="@+id/commands"
+            android:title="Εντολές" />
+        <item
             android:id="@+id/nav_about"
             android:icon="@android:drawable/ic_dialog_info"
             android:title="Περί" />
+        <item
+            android:id="@+id/share"
+            android:icon="@android:drawable/ic_menu_share"
+            android:title="Share" />
+        <item
+            android:id="@+id/feedback"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Feedback" />
     </group>
 
 </menu>
