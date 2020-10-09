@@ -9,13 +9,14 @@
 
             android:key="@string/switch_continuous"
             android:title="@string/continuous_setting" />
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/tts_gender"
-            android:entryValues="@array/tts_gender_values"
 
-            android:title="Επιλογές Φωνής" />
 
+    <SeekBarPreference
+        android:key="complete_silence"
+        android:max="1000"
+        android:min="50"
+        android:defaultValue="500"
+        />
 
     </PreferenceCategory>
 
