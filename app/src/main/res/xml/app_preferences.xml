@@ -1,47 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference
-        android:key="tts_settings"
-        android:title="Κείμενο σε φωνή">
-    </Preference>
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="@string/switch_continuous"
-        android:title="@string/continuous_setting" />
-
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="activate_by_hand"
-        android:title="Activate by hand" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="floating_btn"
-        android:title="Floating Button" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="shortcut"
-        android:title="Shortcut" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="keep_screen_awake"
-        android:title="Keep Screen awake" />
-    <Preference
-        android:key="sms_settings"
-        android:title="Sms">
-    </Preference>
-    <Preference
-        android:key="email_settings"
-        android:title="Email">
-    </Preference>
-
-
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
-        android:title="Commands"
-        >
-        <Preference
-            android:key="unknown_commands"
-            android:title="Unknown Comamnds">
-        </Preference>
+        android:title="TTS">
+
+        <SwitchPreference
+            android:defaultValue="false"
+
+            android:key="@string/switch_continuous"
+            android:title="@string/continuous_setting" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/tts_gender"
+            android:entryValues="@array/tts_gender_values"
+
+            android:title="Επιλογές Φωνής" />
+
 
     </PreferenceCategory>
+
 </PreferenceScreen>
