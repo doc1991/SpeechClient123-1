@@ -251,7 +251,7 @@ public class Switcher {
 
         }else if(app.type.equals(Constants.SET_ALARM)){
             Log.i(TAG,"set alarm");
-
+            System.out.println(app.data);
             if( app.data.get(Constants.ALARM_DATE_TIME)!=null ) {
                 app.Stage = Constants.RUN_STAGE;
                 app.UniqueAction = true;

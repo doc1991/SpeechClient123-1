@@ -36,8 +36,9 @@ public class SpeechRecognition implements RecognitionListener {
         speechIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
        // speechIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
         speechIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        speechIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,1000);
-
+        speechIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS,new Long(100));
+        speechIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS,new Long(100));
+        speechIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS,new Long(100));
 
     }
 

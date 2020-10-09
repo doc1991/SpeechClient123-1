@@ -147,6 +147,8 @@ public class Maestro extends Service {
                 }
 
                 if(resp.getEntities().getDatetime() !=null && resp.getEntities().getDatetime().get(0).getConfidence() >0.8 ) {
+
+                    System.out.println( resp.getEntities());
                     app.data.put(Constants.REM_KEY_TIME,resp.getEntities().getDatetime().get(0).getValue());
                     Log.i(TAG,"rem key time = "+resp.getEntities().getDatetime().get(0).getValue());
                 }
